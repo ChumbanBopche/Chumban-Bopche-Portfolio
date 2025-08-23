@@ -1,0 +1,187 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+/* Custom CSS Variables for Dark Theme */
+:root {
+    --primary-color: #00ffc8; /* A vibrant teal for accents */
+    --primary-hover: #00b991; /* Darker teal for hover state */
+    --secondary-color: #f1f1f1; /* Off-white for body text */
+    --bg-dark: #121212; /* Dark background color */
+    --bg-light: #1e1e1e; /* Slightly lighter dark background for contrast */
+    --card-bg: #2b2b2b; /* Darker card background */
+}
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    transition: background-color 0.5s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* Section Styling */
+section {
+    padding: 5rem 0;
+    transition: background-color 0.5s ease;
+}
+
+.bg-light {
+    background-color: var(--bg-light) !important;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--bg-dark) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--secondary-color) !important;
+    font-weight: 300;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Hero (About) Section */
+#about {
+    background-image: linear-gradient(135deg, var(--bg-dark) 0%, #1e1e1e 100%);
+    padding: 8rem 0;
+    text-align: center;
+}
+
+#about h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    background: -webkit-linear-gradient(45deg, #00ffc8, #007bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+#about p.lead {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+#about img {
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#about img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.8);
+}
+
+/* Projects Section */
+.card {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Contact Section */
+#contact .form-control {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#contact .form-control:focus {
+    background-color: var(--card-bg);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 200, 0.25);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer a {
+    color: var(--secondary-color) !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+/* Fade-In Keyframe Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query for small devices */
+@media (max-width: 768px) {
+    /* Adjust spacing on the contact form */
+    #contact .col-lg-8 {
+        padding: 0 15px;
+    }
+}
+
+/* From Uiverse.io by ShrinilDhorda */
+.btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 0.8rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: rgb(234, 234, 234);
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0px 0px 60px #1f4c65;
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+.btn:active {
+    scale: 0.92;
+}
+
+.btn:hover {
+    background: rgb(2,29,78);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+}
+

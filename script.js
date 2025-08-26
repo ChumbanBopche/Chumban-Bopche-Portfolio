@@ -39,17 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch a random programming quote
 const fetchFunFact = async () => {
     try {
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const apiUrl = 'https://zenquotes.io/api/random';
-        
-        const response = await fetch(proxyUrl + apiUrl);
+        const response = await fetch('https://programming-quotesapi.vercel.app/api/random');
         const data = await response.json();
         
-        // Update the fun fact text with the quote from the new API
-        document.getElementById('fact-text').textContent = `"${data[0].q}"`;
+        // Update the fun fact text
+        document.getElementById('fact-text').textContent = data.quote;
         
         // Update the author text
-        document.getElementById('fact-author').textContent = `- ${data[0].a}`;
+        document.getElementById('fact-author').textContent = `- ${data.author}`;
     } catch (error) {
         console.error('Error fetching programming quote:', error);
         document.getElementById('fact-text').textContent = 'Could not load a programming quote.';

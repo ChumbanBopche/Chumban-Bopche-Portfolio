@@ -39,7 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch a random programming quote
 const fetchFunFact = async () => {
     try {
-        const response = await fetch('https://zenquotes.io/api/random');
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const apiUrl = 'https://zenquotes.io/api/random';
+        
+        const response = await fetch(proxyUrl + apiUrl);
         const data = await response.json();
         
         // Update the fun fact text with the quote from the new API

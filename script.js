@@ -33,34 +33,39 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Function to fetch a random quote
-const fetchRandomQuote = async () => {
-    try {
-        const response = await fetch('https://api.quotable.io/random');
-        const data = await response.json();
-        document.getElementById('quote-text').textContent = `"${data.content}"`;
-        document.getElementById('quote-author').textContent = `- ${data.author}`;
-    } catch (error) {
-        console.error('Error fetching quote:', error);
-        document.getElementById('quote-text').textContent = 'Could not load quote.';
-        document.getElementById('quote-author').textContent = '';
-    }
-};
-
-// Function to fetch a random fun fact
-const fetchFunFact = async () => {
-    try {
-        const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
-        const data = await response.json();
-        document.getElementById('fact-text').textContent = data.text;
-    } catch (error) {
-        console.error('Error fetching fun fact:', error);
-        document.getElementById('fact-text').textContent = 'Could not load fun fact.';
-    }
-};
-
-// Call the functions when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    fetchRandomQuote();
-    fetchFunFact();
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Update the year in the footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('current-year').textContent = currentYear;
+
+    // Initialize AOS library
+    AOS.init();
+
+    // Fetch a random quote
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('quote-text').textContent = data.content;
+            document.getElementById('quote-author').textContent = `- ${data.author}`;
+        })
+        .catch(error => console.error('Error fetching quote:', error));
+
+    // Fetch a random fun fact
+    fetch('https://uselessfacts.jsph.pl/api/v2/facts/random', { mode: 'no-cors' })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('fact-text').textContent = data.text;
+        })
+        .catch(error => console.error('Error fetching fun fact:', error));
 });

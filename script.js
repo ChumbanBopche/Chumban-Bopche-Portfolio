@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch a random quote from a new API
     const fetchRandomQuote = async () => {
     try {
-        const response = await fetch('https://type.fit/api/quotes', { mode: 'no-cors' });
+        const response = await fetch('https://type.fit/api/quotes');
         const data = await response.json();
         const randomIndex = Math.floor(Math.random() * data.length);
         const randomQuote = data[randomIndex];

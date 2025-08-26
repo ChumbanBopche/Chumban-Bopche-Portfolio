@@ -13,11 +13,21 @@ html {
     --card-bg: #2b2b2b; /* Darker card background */
 }
 
+/* Light Theme Variables */
+.light-mode {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --secondary-color: #333;
+    --bg-dark: #f8f9fa;
+    --bg-light: #fff;
+    --card-bg: #fff;
+}
+
 /* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--secondary-color);
+    background-color: var(--bg-dark); /* Use variable */
+    color: var(--secondary-color); /* Use variable */
     transition: background-color 0.5s ease;
 }
 
@@ -48,8 +58,11 @@ section {
 
 /* Navbar */
 .navbar {
-    background-color: var(--bg-dark) !important;
+    background-color: var(--bg-dark) !important; /* Use variable */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.light-mode .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .navbar-brand, .nav-link {
@@ -59,6 +72,10 @@ section {
 
 .nav-link.active, .nav-link:hover {
     color: var(--primary-color) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-light) !important; /* Use variable */
 }
 
 /* Hero (About) Section */
@@ -95,11 +112,15 @@ section {
 
 /* Projects Section */
 .card {
-    background-color: var(--card-bg);
-    color: var(--secondary-color);
+    background-color: var(--card-bg); /* Use variable */
+    color: var(--secondary-color); /* Use variable */
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.light-mode .card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {

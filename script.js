@@ -36,20 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to fetch a random fun fact
-    const fetchFunFact = async () => {
-        try {
-            const response = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random');
-            const data = await response.json();
-            document.getElementById('fact-text').textContent = data.text;
-        } catch (error) {
-            console.error('Error fetching fun fact:', error);
-            document.getElementById('fact-text').textContent = 'Could not load fun fact.';
-        }
-    };
-
-    // Call the fun fact function when the page loads
-    fetchFunFact();
+    // Function to fetch a random programming quote
+const fetchFunFact = async () => {
+    try {
+        const response = await fetch('https://programming-quotes-api.herokuapp.com/quotes/random');
+        const data = await response.json();
+        
+        // Update the fun fact text
+        document.getElementById('fact-text').textContent = data.en;
+        
+        // Update the author text
+        document.getElementById('fact-author').textContent = `- ${data.author}`;
+    } catch (error) {
+        console.error('Error fetching programming quote:', error);
+        document.getElementById('fact-text').textContent = 'Could not load a programming quote.';
+        document.getElementById('fact-author').textContent = '';
+    }
+};
+fetchFunFact();
 
     // Initialize AOS library
     AOS.init({

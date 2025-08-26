@@ -36,20 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to fetch a random quote from a new API
-    const fetchRandomQuote = async () => {
-        try {
-            const response = await fetch('https://api.quotable.io/random');
-            const data = await response.json();
-            document.getElementById('quote-text').textContent = `"${data.content}"`;
-            document.getElementById('quote-author').textContent = `- ${data.author || 'Unknown'}`;
-        } catch (error) {
-            console.error('Error fetching quote:', error);
-            document.getElementById('quote-text').textContent = 'Could not load quote.';
-            document.getElementById('quote-author').textContent = '';
-        }
-    };
-
     // Function to fetch a random fun fact
     const fetchFunFact = async () => {
         try {
@@ -62,8 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Call the functions when the page loads
-    fetchRandomQuote();
+    // Call the fun fact function when the page loads
     fetchFunFact();
 
     // Initialize AOS library

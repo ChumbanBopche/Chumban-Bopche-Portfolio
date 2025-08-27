@@ -36,27 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to fetch a random programming quote
-const fetchFunFact = async () => {
-    try {
-        const response = await fetch('https://programming-quotesapi.vercel.app/api/random');
-        const data = await response.json();
-        
-        // Update the fun fact text
-        document.getElementById('fact-text').textContent = data.quote;
-        
-        // Update the author text
-        document.getElementById('fact-author').textContent = `- ${data.author}`;
-    } catch (error) {
-        console.error('Error fetching programming quote:', error);
-        document.getElementById('fact-text').textContent = 'Could not load a programming quote.';
-        document.getElementById('fact-author').textContent = '';
-    }
-};
-
-    // Call the fun fact function when the page loads
-    fetchFunFact();
-
     // Initialize AOS library
     AOS.init({
         duration: 1000,

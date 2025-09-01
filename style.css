@@ -5,22 +5,26 @@ html {
 
 /* Custom CSS Variables for Dark Theme */
 :root {
-    --primary-color: #00ffc8; /* A vibrant teal for accents */
-    --primary-hover: #00b991; /* Darker teal for hover state */
-    --secondary-color: #f1f1f1; /* Off-white for body text */
-    --bg-dark: #121212; /* Dark background color */
-    --bg-light: #1e1e1e; /* Slightly lighter dark background for contrast */
-    --card-bg: #2b2b2b; /* Darker card background */
+    --primary-color: #bb86fc; /* A vibrant, light purple */
+    --primary-hover: #9c27b0; /* A deeper purple for hover state */
+    --secondary-color: #e0e0e0; /* A light gray for body text */
+    --bg-dark: #1f142a; /* A very dark purple */
+    --bg-light: #2c1e40; /* A slightly lighter dark purple */
+    --card-bg: #3c2a5a; /* A medium dark purple for card backgrounds */
+    --nav-bg: #1f142a; /* Matches the dark background */
+    --nav-text: #e0e0e0;
 }
 
 /* Light Theme Variables */
-.light-mode {
-    --primary-color: #007bff;
-    --primary-hover: #0056b3;
-    --secondary-color: #333;
-    --bg-dark: #f8f9fa;
-    --bg-light: #fff;
-    --card-bg: #fff;
+body.light-mode {
+    --primary-color: #6200ee; /* A strong purple for accents */
+    --primary-hover: #3700b3; /* Darker purple for hover state */
+    --secondary-color: #1e1e1e; /* Dark gray for body text */
+    --bg-dark: #f0f2f5; /* Light gray background */
+    --bg-light: #ffffff; /* White background for contrast */
+    --card-bg: #ffffff; /* White card background */
+    --nav-bg: #ffffff; /* White navigation bar */
+    --nav-text: #1e1e1e;
 }
 
 /* Global Styles */
@@ -184,19 +188,19 @@ footer a:hover {
 
 /* From Uiverse.io by ShrinilDhorda */
 .btn {
-    font-size: 1.2rem;
-    padding: 0.8rem 0.8rem;
+    font-size: 1rem;
+    padding: 0.6rem 0.6rem;
     border: none;
     outline: none;
     border-radius: 0.4rem;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: rgb(14, 14, 26);
-    color: rgb(234, 234, 234);
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
     font-weight: 700;
     transition: 0.6s;
-    box-shadow: 0px 0px 60px #1f4c65;
-    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
 }
 
 .btn:active {
@@ -204,8 +208,23 @@ footer a:hover {
 }
 
 .btn:hover {
-    background: rgb(2,29,78);
-    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-    color: rgb(4, 4, 38);
+    background: linear-gradient(270deg, var(--primary-hover) 0%, var(--primary-color) 60%);
+    color: var(--bg-dark);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .btn {
+    padding: 0.6rem 0.6rem;
+    font-size: 1rem;
+    background-color: var(--bg-light);
+    color: var(--secondary-color);
+    box-shadow: none;
+    border: #9c27b0 solid;
+}
+
+body.light-mode .btn:hover {
+    background: linear-gradient(270deg, var(--primary-hover) 0%, var(--primary-color) 60%);
+    color: var(--bg-dark);
+    box-shadow: none;
 }
 

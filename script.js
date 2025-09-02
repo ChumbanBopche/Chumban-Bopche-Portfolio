@@ -1,44 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Theme Toggle
-    const themeToggle = document.getElementById('theme-toggle');
+    // Select the preloader and body elements
+    const preloader = document.getElementById('preloader');
     const body = document.body;
 
-    // Check for saved theme preference
+    // Wait for 3 seconds before hiding the preloader
+    setTimeout(() => {
+        // Add a class to fade out the preloader
+        preloader.classList.add('fade-out');
+
+        // After the fade-out transition is complete, remove the preloader and show the content
+        preloader.addEventListener('transitionend', () => {
+            preloader.style.display = 'none'; // Hide the preloader completely
+            body.classList.remove('hidden'); // Allow scrolling and show content
+            body.classList.add('fade-in'); // Fade in the main content
+
+            // Initialize AOS after content is visible
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        }, { once: true });
+    }, 2000); // 1 seconds timeout
+
+    // Theme Toggle (existing logic)
+    const themeToggle = document.getElementById('input');
     const savedTheme = localStorage.getItem('theme');
+    
     if (savedTheme === 'light') {
         body.classList.add('light-mode');
         if (themeToggle) {
-            themeToggle.classList.remove('fa-moon');
-            themeToggle.classList.add('fa-sun');
+            themeToggle.checked = false;
         }
     } else {
         body.classList.remove('light-mode');
         if (themeToggle) {
-            themeToggle.classList.remove('fa-sun');
-            themeToggle.classList.add('fa-moon');
+            themeToggle.checked = true;
         }
     }
 
     if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('light-mode')) {
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
                 body.classList.remove('light-mode');
-                themeToggle.classList.remove('fa-sun');
-                themeToggle.classList.add('fa-moon');
                 localStorage.setItem('theme', 'dark');
             } else {
                 body.classList.add('light-mode');
-                themeToggle.classList.remove('fa-moon');
-                themeToggle.classList.add('fa-sun');
                 localStorage.setItem('theme', 'light');
             }
         });
     }
-
-    // Initialize AOS library
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
 });

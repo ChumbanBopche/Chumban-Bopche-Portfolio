@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 once: true
             });
         }, { once: true });
-    }, 2000); // 1 seconds timeout
+    }, 3000); // 1 seconds timeout
 
     // Theme Toggle (existing logic)
     const themeToggle = document.getElementById('input');

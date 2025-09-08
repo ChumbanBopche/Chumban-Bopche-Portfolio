@@ -114,6 +114,29 @@ section {
     box-shadow: 0 0 25px rgba(0, 255, 200, 0.8);
 }
 
+/* Projects Section */
+.card {
+    background-color: var(--card-bg); /* Use variable */
+    color: var(--secondary-color); /* Use variable */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.light-mode .card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 /* Contact Section */
 #contact .form-control {
     background-color: var(--card-bg);
@@ -532,42 +555,5 @@ body.fade-in {
     }
     to {
         opacity: 1;
-    }
-}
-
-/* Project Carousel Specific Styles */
-#project-carousel .carousel-inner .card {
-    transform: none; /* Override existing card hover effect for carousel items */
-    box-shadow: none;
-}
-
-#project-carousel .carousel-inner .card:hover {
-    transform: none;
-}
-
-#project-carousel {
-    max-width: 800px;
-    margin: auto;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(1);
-}
-
-/* Styling for the carousel indicators (dots) */
-.carousel-indicators button {
-    background-color: var(--secondary-color);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.carousel-indicators .active {
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    #project-carousel {
-        max-width: 90%;
     }
 }

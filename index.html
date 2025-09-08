@@ -11,6 +11,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <script type="module">
+        import { Application } from 'https://unpkg.com/@splinetool/runtime@1.1.8/build/runtime.js';
+        const canvas = document.getElementById('canvas3d');
+        const app = new Application(canvas);
+        app.load('https://prod.spline.design/76VhNtR1mJFOGz-a/scene.splinecode');
+    </script>
+
 </head>
 <body class="hidden">
     <div id="preloader">
@@ -126,6 +134,14 @@
             <div class="col-lg-6 text-center">
                 <img src="Chumban.jpeg" alt="Profile Picture" class="img-fluid rounded-circle mt-4 mt-lg-0">
             </div>
+        </div>
+    </div>
+</section>
+
+<section id="spline-scene" class="py-5" data-aos="fade-in">
+    <div class="container text-center">
+        <div class="spline-container">
+            <canvas id="canvas3d"></canvas>
         </div>
     </div>
 </section>

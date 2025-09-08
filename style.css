@@ -557,3 +557,18 @@ body.fade-in {
         opacity: 1;
     }
 }
+
+/* Styling for the Spline 3D Scene */
+.spline-container {
+    width: 100%;
+    max-width: 950px; /* Adjust max-width as needed */
+    height: 650px; /* Adjust height as needed */
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#canvas3d {
+    width: 1200px;
+    height: 1200px;
+}

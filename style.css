@@ -599,3 +599,37 @@ body.fade-in {
         text-align: center !important;
     }
 }
+
+/* Project Card - Key Technologies Styling */
+
+.key-tech-section h6 {
+    /* Ensures the heading color stands out but is not the primary color */
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.tech-badges .badge {
+    /* Style for the individual technology badges */
+    padding: 0.4em 0.7em;
+    margin: 2px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    
+    /* Use theme variables for color consistency */
+    background-color: var(--primary-color) !important;
+    color: var(--bg-dark) !important; /* Dark text on the badge */
+    border-radius: 5px;
+}
+
+/* Light Mode specific badge styling */
+body.light-mode .tech-badges .badge {
+    background-color: var(--primary-color) !important;
+    color: var(--bg-light) !important; /* Lighter text on the badge */
+}
+
+/* Override default Bootstrap primary color for badges in dark mode */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}

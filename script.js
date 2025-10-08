@@ -50,3 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// See More Projects Button Functionality
+    const moreProjectsCollapse = document.getElementById('moreProjects');
+    const seeMoreBtn = document.getElementById('seeMoreBtn');
+
+    if (moreProjectsCollapse && seeMoreBtn) {
+        // Change text to 'Show Less' when projects are visible
+        moreProjectsCollapse.addEventListener('shown.bs.collapse', () => {
+            seeMoreBtn.textContent = 'Show Less Projects';
+            seeMoreBtn.setAttribute('aria-expanded', 'true');
+        });
+
+        // Change text back to 'See More' when projects are hidden
+        moreProjectsCollapse.addEventListener('hidden.bs.collapse', () => {
+            seeMoreBtn.textContent = 'See More Projects';
+            seeMoreBtn.setAttribute('aria-expanded', 'false');
+        });
+    }

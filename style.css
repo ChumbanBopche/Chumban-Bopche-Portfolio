@@ -633,3 +633,35 @@ body.light-mode .tech-badges .badge {
 .bg-primary {
     background-color: var(--primary-color) !important;
 }
+
+/* Certificates Section */
+.certificate-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.certificate-img {
+  height: 220px;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: var(--bg-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode fix */
+body.light-mode .certificate-img {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Certificate badges */
+.badge-cert {
+  background-color: var(--primary-color);
+  color: var(--bg-dark);
+  font-size: 0.7rem;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+}
